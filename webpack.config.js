@@ -22,7 +22,7 @@ module.exports = {
   },
   entry: {
     "main/index": "./src/main/index.js",
-    "renderer/app": "./src/renderer/app.js"
+    "renderer/app": "./src/renderer/app.jsx"
   },
   output: {
     filename: "dist/js/[name].js"
