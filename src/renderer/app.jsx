@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { Router, Route, hashHistory } from "react-router";
-import Top from "./components/top";
+import Top from "./components/Top/Top";
 import Second from "./components/second";
 
 const appRoutes = (

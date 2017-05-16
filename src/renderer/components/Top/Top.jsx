@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import s from "./Top.css";
 
 export default class Top extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ export default class Top extends React.Component {
 
   render() {
     return (
-      <Link to="/second">to second</Link>
+      <div className={s.root}>
+        <Link to="/second">to second</Link>
+      </div>
     );
   }
 }
