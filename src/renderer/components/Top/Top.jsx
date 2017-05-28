@@ -1,5 +1,6 @@
 import React from "react";
-import fetch from "isomorphic-fetch";
+//import fetch from "isomorphic-fetch";
+import fetch from "../../util/fetch";
 import { Link } from "react-router";
 import s from "./Top.css";
 
@@ -15,25 +16,17 @@ export default class Top extends React.Component {
   }
 
   fetchData() {
-    fetch("https://httpbin.org/ip", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      }
-    })
-    .then(res => {
-      if (res.status >= 400) {
+    (async () => {
+      const response = await fetch("https://httpbin.org/ip");
+      if (response.status >= 400) {
         throw new Error("Bad response from server");
       }
-      return res.json();
-    })
-    .then(json => {
+      const data = await response.json();
+
       this.setState({
-        test: json.origin
+        test: data.origin
       });
-    });
+    })();
   }
 
   render() {
